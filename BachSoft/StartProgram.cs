@@ -14,8 +14,8 @@ namespace BachSoft
 
             // Tester.CompareContent(@"C:\Users\Ivan\Desktop\test2.txt", @"C:\Users\Ivan\Desktop\test3.txt");
 
+            // IOManager.CreateDirectoryInCurrentFolder("pecho");
 
-            IOManager.CreateDirectoryInCurrentFolder("pecho");
             IOManager.TraverceDirectory(Directory.GetCurrentDirectory());
         }
     }

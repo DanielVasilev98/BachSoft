@@ -14,11 +14,19 @@
             OutputWriter.WriteMessageOnNewLine(path);
             subFolders.Enqueue(SessionData.currentPath);
 
+           
             while (subFolders.Count !=0)
             {
                 string currentPath = subFolders.Dequeue();
                 int identation = currentPath.Split('\\').Length - initialIdentation;
                 identation++;
+
+                foreach (var file in Directory.GetFiles(currentPath))
+                {
+                    int indexOfLastSlash = file.LastIndexOf("\\");
+                    string fileName = file.Substring(indexOfLastSlash);
+                    OutputWriter.WriteMessageOnNewLine(new string('-', indexOfLastSlash) + fileName);
+                }
 
                 // Print the folder patch
 
@@ -27,6 +35,8 @@
                     subFolders.Enqueue(directoryPatch);
                     OutputWriter.WriteMessageOnNewLine(string.Format("{0}{1}", new string ('-', identation), directoryPatch));
                 }
+
+              
             }
         }
 
