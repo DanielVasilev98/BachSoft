@@ -1,4 +1,6 @@
-﻿namespace BachSoft
+﻿using System.Collections.Generic;
+
+namespace BachSoft
 {
     using System;
 
@@ -27,6 +29,9 @@
             Console.ForegroundColor = currentColor;
         }
 
-
+        public static void PrintStudents(KeyValuePair<string, List<int>> student)
+        {
+            OutputWriter.WriteMessageOnNewLine(string.Format($"{student.Key} - {string.Join(", ", student.Value)}"));
+        }
     }
 }
