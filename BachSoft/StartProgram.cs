@@ -9,7 +9,7 @@
             // StudentsRepository.InitializeData();
             // StudentsRepository.GetAllStudentsByCource("Unity");
 
-            Tester.CompareContent(@"C:\Users\Ivan\Desktop\test1.txt", "C:\Users\Ivan\Desktop\test2.txt");
+            Tester.CompareContent(@"C:\Users\Ivan\Desktop\test2.txt", @"C:\Users\Ivan\Desktop\test3.txt");
 
         }
     }
