@@ -1,6 +1,6 @@
 ﻿namespace BachSoft
 {
-    class Program
+    class StartProgram
     {
         static void Main()
         {
