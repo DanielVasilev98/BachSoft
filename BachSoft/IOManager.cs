@@ -7,11 +7,12 @@
     {
         public static void TraverceDirectory(string path)
         {
+
             // OutputWriter.WriteEmptyLine();
-            int initialIdentation = path.Split('\\').Length;
+            int initialIdentation = SessionData.currentPath.Split('\\').Length;
             Queue<string> subFolders = new Queue<string>();
             OutputWriter.WriteMessageOnNewLine(path);
-            subFolders.Enqueue(path);
+            subFolders.Enqueue(SessionData.currentPath);
 
             while (subFolders.Count !=0)
             {
@@ -27,6 +28,12 @@
                     OutputWriter.WriteMessageOnNewLine(string.Format("{0}{1}", new string ('-', identation), directoryPatch));
                 }
             }
+        }
+
+        public static void CreateDirectoryInCurrentFolder(string name)
+        {
+            string path = Directory.GetCurrentDirectory() + "\\" + name;
+            Directory.CreateDirectory(path);
         }
     }
 }
