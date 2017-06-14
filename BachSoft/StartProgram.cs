@@ -6,9 +6,10 @@
         {
 
             // IOManager.TraverceDirectory(@"C:\Users\Ivan\Documents\Visual Studio 2017\Projects\CSharp\BachSoft\BachSoft");
+            // StudentsRepository.InitializeData();
+            // StudentsRepository.GetAllStudentsByCource("Unity");
 
-            StudentsRepository.InitializeData();
-            StudentsRepository.GetAllStudentsByCource("Unity");
+            Tester.CompareContent(@"C:\Users\Ivan\Desktop\test1.txt", "C:\Users\Ivan\Desktop\test2.txt");
 
         }
     }

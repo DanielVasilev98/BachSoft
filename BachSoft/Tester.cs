@@ -17,7 +17,6 @@ namespace BachSoft
             return finalPath;
         }
 
-
         public static void CompareContent(string userOutputPath, string expectedOutputPath)
         {
             OutputWriter.WriteMessageOnNewLine("Reading files....");
@@ -27,11 +26,24 @@ namespace BachSoft
             string[] expectedOutputLines = File.ReadAllLines(expectedOutputPath);
 
             bool hasMismatch;
-            string[] mismatches = GetLineWithPossibleMismatches(actualOutputLines, expectedOutputPath, out hasMismatch);
+            string[] mismatches = GetLineWithPossibleMismatches(actualOutputLines, expectedOutputLines, out hasMismatch);
 
             PrintOutput(mismatches, hasMismatch, mismatchPath);
             OutputWriter.WriteMessageOnNewLine("Files read!");
 
+        }
+
+        private static void PrintOutput(string[] mismatches, bool hasMismatch, string mismatchPath)
+        {
+            if (hasMismatch)
+            {
+                foreach (var line in mismatches)
+                {
+                    OutputWriter.WriteMessageOnNewLine(line);
+                }
+                File.WriteAllLines(mismatchPath, mismatches);
+                return;
+            }
         }
 
         private static string[] GetLineWithPossibleMismatches(string[] actualOutputLines, string[] expectedOutputPath, out bool hasMismatch)
@@ -62,5 +74,8 @@ namespace BachSoft
             }
             return mismaches;
         }
+
+
+
     }
 }
