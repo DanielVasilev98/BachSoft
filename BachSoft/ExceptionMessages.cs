@@ -7,5 +7,6 @@
         public static string DataAlreadyInitialisedException { get; set; }
         public static string DataNotInitializedExceptionMessage { get; set; }
         public static string InexistingCourseInDataBase { get; set; }
+        public static string InvalidPath { get; set; }
     }
 }
